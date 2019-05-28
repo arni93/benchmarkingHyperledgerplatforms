@@ -1,0 +1,12 @@
+1) fabric fails to instatiate 20 and more endorsing peers on local machine, it might need to be instantiated manually to work properly
+or just use less endorsing peer in tests.
+
+2) iroha has timeouts when running benchmark with general node ./run......., the idea to overcome it is to start network manually and to test it
+without start command in config file
+3) iroha might fail to run some nodes, but it might be fixed with setting appropiate TIMEOUT in wait-for-it.sh file
+
+
+
+BLOCK SIZE
+1) fabric - change configuration and generate new genesis block
+2) iroha - block size is in configs of peers, need to change it for all

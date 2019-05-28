@@ -1,0 +1,412 @@
+{
+  "caliper": {  
+    "blockchain": "iroha",
+    "command" : {
+      "start": "docker-compose -f network/iroha/iroha-100-validators/docker-compose.yml up -d",
+      "end" : "docker-compose -f network/iroha/iroha-100-validators/docker-compose.yml down; docker rm -f $(docker ps -aq)"
+    }
+  },
+  "iroha": {
+    "admin" :{
+      "account":"admin",
+      "domain" : "test",
+      "key-pub":"network/iroha/iroha-100-validators/admin@test.pub",
+      "key-priv":"network/iroha/iroha-100-validators/admin@test.priv"
+    },
+    "network": {
+      "node0": {
+        "torii": "localhost:50000"
+      },
+      "node1": {
+        "torii": "localhost:50001"
+      },
+      "node2": {
+        "torii": "localhost:50002"
+      },
+      "node3": {
+        "torii": "localhost:50003"
+      },
+      "node4": {
+        "torii": "localhost:50004"
+      },
+      "node5": {
+        "torii": "localhost:50005"
+      },
+      "node6": {
+        "torii": "localhost:50006"
+      },
+      "node7": {
+        "torii": "localhost:50007"
+      },
+      "node8": {
+        "torii": "localhost:50008"
+      },
+      "node9": {
+        "torii": "localhost:50009"
+      }
+      ,
+      "node10": {
+        "torii": "localhost:50010"
+      }
+      ,
+      "node11": {
+        "torii": "localhost:50011"
+      }
+      ,
+      "node12": {
+        "torii": "localhost:50012"
+      }
+      ,
+      "node13": {
+        "torii": "localhost:50013"
+      }
+      ,
+      "node14": {
+        "torii": "localhost:50014"
+      }
+      ,
+      "node15": {
+        "torii": "localhost:50015"
+      }
+      ,
+      "node16": {
+        "torii": "localhost:50016"
+      }
+      ,
+      "node17": {
+        "torii": "localhost:50017"
+      }
+      ,
+      "node18": {
+        "torii": "localhost:50018"
+      }
+      ,
+      "node19": {
+        "torii": "localhost:50019"
+      }
+      ,
+      "node20": {
+        "torii": "localhost:50020"
+      } 
+      ,
+      "node21": {
+        "torii": "localhost:50021"
+      } 
+      ,
+      "node22": {
+        "torii": "localhost:50022"
+      } 
+      ,
+      "node23": {
+        "torii": "localhost:50023"
+      } 
+      ,
+      "node24": {
+        "torii": "localhost:50024"
+      } 
+      ,
+      "node25": {
+        "torii": "localhost:50025"
+      } 
+      ,
+      "node26": {
+        "torii": "localhost:50026"
+      } 
+      ,
+      "node27": {
+        "torii": "localhost:50027"
+      } 
+      ,
+      "node28": {
+        "torii": "localhost:50028"
+      } 
+      ,
+      "node29": {
+        "torii": "localhost:50029"
+      }
+      ,
+      "node30": {
+        "torii": "localhost:50030"
+      }    
+      ,
+      "node31": {
+        "torii": "localhost:50031"
+      }    
+      ,
+      "node32": {
+        "torii": "localhost:50032"
+      }    
+      ,
+      "node33": {
+        "torii": "localhost:50033"
+      }    
+      ,
+      "node34": {
+        "torii": "localhost:50034"
+      }    
+      ,
+      "node35": {
+        "torii": "localhost:50035"
+      }    
+      ,
+      "node36": {
+        "torii": "localhost:50036"
+      }    
+      ,
+      "node37": {
+        "torii": "localhost:50037"
+      }    
+      ,
+      "node38": {
+        "torii": "localhost:50038"
+      }    
+      ,
+      "node39": {
+        "torii": "localhost:50039"
+      }
+      ,
+      "node40": {
+        "torii": "localhost:50040"
+      }  
+      ,
+      "node41": {
+        "torii": "localhost:50041"
+      }  
+      ,
+      "node42": {
+        "torii": "localhost:50042"
+      }  
+      ,
+      "node43": {
+        "torii": "localhost:50043"
+      }  
+      ,
+      "node44": {
+        "torii": "localhost:50044"
+      }  
+      ,
+      "node45": {
+        "torii": "localhost:50045"
+      }  
+      ,
+      "node46": {
+        "torii": "localhost:50046"
+      }  
+      ,
+      "node47": {
+        "torii": "localhost:50047"
+      }  
+      ,
+      "node48": {
+        "torii": "localhost:50048"
+      }  
+      ,
+      "node49": {
+        "torii": "localhost:50049"
+      }
+      ,
+      "node50": {
+        "torii": "localhost:50050"
+      } 
+      ,
+      "node51": {
+        "torii": "localhost:50051"
+      } 
+      ,
+      "node52": {
+        "torii": "localhost:50052"
+      } 
+      ,
+      "node53": {
+        "torii": "localhost:50053"
+      } 
+      ,
+      "node54": {
+        "torii": "localhost:50054"
+      } 
+      ,
+      "node55": {
+        "torii": "localhost:50055"
+      } 
+      ,
+      "node56": {
+        "torii": "localhost:50056"
+      } 
+      ,
+      "node57": {
+        "torii": "localhost:50057"
+      } 
+      ,
+      "node58": {
+        "torii": "localhost:50058"
+      } 
+      ,
+      "node59": {
+        "torii": "localhost:50059"
+      }
+      ,
+      "node60": {
+        "torii": "localhost:50060"
+      }
+      ,
+      "node61": {
+        "torii": "localhost:50061"
+      }
+      ,
+      "node62": {
+        "torii": "localhost:50062"
+      }
+      ,
+      "node63": {
+        "torii": "localhost:50063"
+      }
+      ,
+      "node64": {
+        "torii": "localhost:50064"
+      }
+      ,
+      "node65": {
+        "torii": "localhost:50065"
+      }
+      ,
+      "node66": {
+        "torii": "localhost:50066"
+      }
+      ,
+      "node67": {
+        "torii": "localhost:50067"
+      }
+      ,
+      "node68": {
+        "torii": "localhost:50068"
+      }
+      ,
+      "node69": {
+        "torii": "localhost:50069"
+      }
+      ,
+      "node70": {
+        "torii": "localhost:50070"
+      }
+      ,
+      "node71": {
+        "torii": "localhost:50071"
+      }
+      ,
+      "node72": {
+        "torii": "localhost:50072"
+      }
+      ,
+      "node73": {
+        "torii": "localhost:50073"
+      }
+      ,
+      "node74": {
+        "torii": "localhost:50074"
+      }
+      ,
+      "node75": {
+        "torii": "localhost:50075"
+      }
+      ,
+      "node76": {
+        "torii": "localhost:50076"
+      }
+      ,
+      "node77": {
+        "torii": "localhost:50077"
+      }
+      ,
+      "node78": {
+        "torii": "localhost:50078"
+      }
+      ,
+      "node79": {
+        "torii": "localhost:50079"
+      }
+      ,
+      "node80": {
+        "torii": "localhost:50080"
+      }
+      ,
+      "node81": {
+        "torii": "localhost:50081"
+      }
+      ,
+      "node82": {
+        "torii": "localhost:50082"
+      }
+      ,
+      "node83": {
+        "torii": "localhost:50083"
+      }
+      ,
+      "node84": {
+        "torii": "localhost:50084"
+      }
+      ,
+      "node85": {
+        "torii": "localhost:50085"
+      }
+      ,
+      "node86": {
+        "torii": "localhost:50086"
+      }
+      ,
+      "node87": {
+        "torii": "localhost:50087"
+      }
+      ,
+      "node88": {
+        "torii": "localhost:50088"
+      }
+      ,
+      "node89": {
+        "torii": "localhost:50089"
+      }
+      ,
+      "node90": {
+        "torii": "localhost:50090"
+      }
+      ,
+      "node91": {
+        "torii": "localhost:50091"
+      }
+      ,
+      "node92": {
+        "torii": "localhost:50092"
+      }
+      ,
+      "node93": {
+        "torii": "localhost:50093"
+      }
+      ,
+      "node94": {
+        "torii": "localhost:50094"
+      }
+      ,
+      "node95": {
+        "torii": "localhost:50095"
+      }
+      ,
+      "node96": {
+        "torii": "localhost:50096"
+      }
+      ,
+      "node97": {
+        "torii": "localhost:50097"
+      }
+      ,
+      "node98": {
+        "torii": "localhost:50098"
+      }
+      ,
+      "node99": {
+        "torii": "localhost:50099"
+      }
+    },
+    "fakecontract": [
+      {"factory": "src/contract/iroha/simple/factory.js", "id":["simple"]}
+    ]
+  }
+}

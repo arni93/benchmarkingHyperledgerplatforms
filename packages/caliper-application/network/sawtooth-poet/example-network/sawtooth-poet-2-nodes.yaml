@@ -1,0 +1,198 @@
+# Copyright 2018 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ------------------------------------------------------------------------------
+
+version: '2.1'
+
+volumes:
+  poet-shared:
+
+services:
+
+  shell:
+    image: hyperledger/sawtooth-all:1.0
+    container_name: shell-default
+    entrypoint: "bash -c \"\
+        sawtooth keygen && \
+        tail -f /dev/null \
+        \""
+
+
+  rest-api-0:
+    container_name: rest-api-0
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8008:8008'
+    depends_on:
+      - validator-0
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-0:4004 \
+          --bind rest-api-0:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-1:
+    container_name: rest-api-1
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    depends_on:
+      - validator-1
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-1:4004 \
+          --bind rest-api-1:8008
+      "
+    stop_signal: SIGKILL
+
+
+
+  settings-tp-0:
+    container_name: settings-tp-0
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -vvv --connect tcp://validator-0:4004
+
+
+  settings-tp-1:
+    container_name: settings-tp-1
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -vvv --connect tcp://validator-1:4004
+
+
+  intkey-tp-0:
+    image: hyperledger/sawtooth-intkey-tp-python:1.0
+    container_name: intkey-tp-0
+    expose:
+      - 4004
+    command: intkey-tp-python -vvv -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  intkey-tp-1:
+    image: hyperledger/sawtooth-intkey-tp-python:1.0
+    container_name: intkey-tp-1
+    expose:
+      - 4004
+    command: intkey-tp-python -vvv -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+
+  simple-tp-python-0:
+    container_name: simple-tp-python-default-0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+
+  simple-tp-python-1:
+    container_name: simple-tp-python-default-1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -vvv -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+
+
+  poet-validator-registry-tp-0:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-0
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -vvv -C tcp://validator-0:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-1:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-1
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -vvv -C tcp://validator-1:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+
+  validator-0:
+    container_name: validator-0
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    ports:
+      - '4004:4004'
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawset genesis -k /etc/sawtooth/keys/validator.priv -o config-genesis.batch && \
+        sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config.batch \
+            sawtooth.consensus.algorithm=poet \
+            sawtooth.poet.report_public_key_pem=\"$$(cat /etc/sawtooth/simulator_rk_pub.pem)\" \
+            sawtooth.poet.valid_enclave_measurements=$$(poet enclave measurement) \
+            sawtooth.poet.valid_enclave_basenames=$$(poet enclave basename) && \
+        poet registration create \
+            -k /etc/sawtooth/keys/validator.priv \
+            --enclave-module simulator \
+            -o poet.batch && \
+        sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config-settings.batch \
+            sawtooth.poet.initial_wait_time=15 \
+            sawtooth.poet.target_wait_time=25 \
+            sawtooth.poet.population_estimate_sample_size=10 && \
+        sawadm genesis config-genesis.batch config.batch config-settings.batch poet.batch && \
+        sawtooth-validator -vv \
+            --endpoint tcp://validator-0:8800 \
+            --bind component:tcp://eth0:4004 \
+            --bind network:tcp://eth0:8800 \
+            --peering dynamic \
+            --scheduler parallel \
+            --network trust \
+      "
+
+  validator-1:
+    container_name: validator-1
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -vv --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "

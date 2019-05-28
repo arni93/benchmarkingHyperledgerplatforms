@@ -1,0 +1,37 @@
+{
+  "caliper": {  
+    "blockchain": "iroha",
+    "command" : {
+      "start": "docker-compose -f network/iroha/iroha-5-validators/docker-compose.yml up -d",
+      "end" : "docker-compose -f network/iroha/iroha-5-validators/docker-compose.yml down; docker rm -f $(docker ps -aq)"
+    }
+  },
+  "iroha": {
+    "admin" :{
+      "account":"admin",
+      "domain" : "test",
+      "key-pub":"network/iroha/iroha-5-validators/admin@test.pub",
+      "key-priv":"network/iroha/iroha-5-validators/admin@test.priv"
+    },
+    "network": {
+      "node0": {
+        "torii": "localhost:50000"
+      },
+      "node1": {
+        "torii": "localhost:50001"
+      },
+      "node2": {
+        "torii": "localhost:50002"
+      },
+      "node3": {
+        "torii": "localhost:50003"
+      },
+      "node4": {
+        "torii": "localhost:50004"
+      }
+    },
+    "fakecontract": [
+      {"factory": "src/contract/iroha/simple/factory.js", "id":["simple"]}
+    ]
+  }
+}

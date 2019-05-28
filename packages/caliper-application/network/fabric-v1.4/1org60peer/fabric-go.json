@@ -1,0 +1,482 @@
+{
+  "caliper": {
+    "blockchain": "fabric",
+    "command" : {
+      "start": "docker-compose -f network/fabric-v1.4/1org60peer/docker-compose.yaml up -d;sleep 3s",
+      "end" : "docker-compose -f network/fabric-v1.4/1org60peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+    }
+  },
+  "fabric": {
+    "cryptodir": "network/fabric-v1.4/config/crypto-config",
+    "network": {
+      "orderer": {
+        "url": "grpc://localhost:7050",
+        "mspid": "OrdererMSP",
+        "msp": "network/fabric-v1.4/config/crypto-config/ordererOrganizations/example.com/msp/",
+        "server-hostname": "orderer.example.com",
+        "tls_cacerts": "network/fabric-v1.4/config/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+      },
+      "org1": {
+        "name": "peerOrg1",
+        "mspid": "Org1MSP",
+        "msp": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/msp/",
+        "ca": {
+          "url": "http://localhost:7054",
+          "name": "ca.org1.example.com"
+        },
+        "peer0": {
+          "requests": "grpc://localhost:9001",
+          "events": "grpc://localhost:9002",
+          "server-hostname": "peer0.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+        },
+        "peer1": {
+          "requests": "grpc://localhost:9003",
+          "events": "grpc://localhost:9004",
+          "server-hostname": "peer1.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
+        },
+        "peer2": {
+          "requests": "grpc://localhost:9005",
+          "events": "grpc://localhost:9006",
+          "server-hostname": "peer2.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer2.org1.example.com/tls/ca.crt"
+        },
+        "peer3": {
+          "requests": "grpc://localhost:9007",
+          "events": "grpc://localhost:9008",
+          "server-hostname": "peer3.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer3.org1.example.com/tls/ca.crt"
+        },
+        "peer4": {
+          "requests": "grpc://localhost:9009",
+          "events": "grpc://localhost:9010",
+          "server-hostname": "peer4.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer4.org1.example.com/tls/ca.crt"
+        },
+        "peer5": {
+          "requests": "grpc://localhost:9011",
+          "events": "grpc://localhost:9012",
+          "server-hostname": "peer5.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer5.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer6": {
+          "requests": "grpc://localhost:9013",
+          "events": "grpc://localhost:9014",
+          "server-hostname": "peer6.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer6.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer7": {
+          "requests": "grpc://localhost:9015",
+          "events": "grpc://localhost:9016",
+          "server-hostname": "peer7.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer7.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer8": {
+          "requests": "grpc://localhost:9017",
+          "events": "grpc://localhost:9018",
+          "server-hostname": "peer8.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer8.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer9": {
+          "requests": "grpc://localhost:9019",
+          "events": "grpc://localhost:9020",
+          "server-hostname": "peer9.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer9.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer10": {
+          "requests": "grpc://localhost:9021",
+          "events": "grpc://localhost:9022",
+          "server-hostname": "peer10.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer10.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer11": {
+          "requests": "grpc://localhost:9023",
+          "events": "grpc://localhost:9024",
+          "server-hostname": "peer11.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer11.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer12": {
+          "requests": "grpc://localhost:9025",
+          "events": "grpc://localhost:9026",
+          "server-hostname": "peer12.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer12.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer13": {
+          "requests": "grpc://localhost:9027",
+          "events": "grpc://localhost:9028",
+          "server-hostname": "peer13.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer13.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer14": {
+          "requests": "grpc://localhost:9029",
+          "events": "grpc://localhost:9030",
+          "server-hostname": "peer14.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer14.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer15": {
+          "requests": "grpc://localhost:9031",
+          "events": "grpc://localhost:9032",
+          "server-hostname": "peer15.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer15.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer16": {
+          "requests": "grpc://localhost:9033",
+          "events": "grpc://localhost:9034",
+          "server-hostname": "peer16.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer16.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer17": {
+          "requests": "grpc://localhost:9035",
+          "events": "grpc://localhost:9036",
+          "server-hostname": "peer17.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer17.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer18": {
+          "requests": "grpc://localhost:9037",
+          "events": "grpc://localhost:9038",
+          "server-hostname": "peer18.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer18.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer19": {
+          "requests": "grpc://localhost:9039",
+          "events": "grpc://localhost:9040",
+          "server-hostname": "peer19.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer19.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer20": {
+          "requests": "grpc://localhost:9041",
+          "events": "grpc://localhost:9042",
+          "server-hostname": "peer20.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer20.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer21": {
+          "requests": "grpc://localhost:9043",
+          "events": "grpc://localhost:9044",
+          "server-hostname": "peer21.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer21.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer22": {
+          "requests": "grpc://localhost:9045",
+          "events": "grpc://localhost:9046",
+          "server-hostname": "peer22.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer22.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer23": {
+          "requests": "grpc://localhost:9047",
+          "events": "grpc://localhost:9048",
+          "server-hostname": "peer23.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer23.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer24": {
+          "requests": "grpc://localhost:9049",
+          "events": "grpc://localhost:9050",
+          "server-hostname": "peer24.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer24.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer25": {
+          "requests": "grpc://localhost:9051",
+          "events": "grpc://localhost:9052",
+          "server-hostname": "peer25.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer25.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer26": {
+          "requests": "grpc://localhost:9053",
+          "events": "grpc://localhost:9054",
+          "server-hostname": "peer26.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer26.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer27": {
+          "requests": "grpc://localhost:9055",
+          "events": "grpc://localhost:9056",
+          "server-hostname": "peer27.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer27.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer28": {
+          "requests": "grpc://localhost:9057",
+          "events": "grpc://localhost:9058",
+          "server-hostname": "peer28.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer28.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer29": {
+          "requests": "grpc://localhost:9059",
+          "events": "grpc://localhost:9060",
+          "server-hostname": "peer29.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer29.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer30": {
+          "requests": "grpc://localhost:9061",
+          "events": "grpc://localhost:9062",
+          "server-hostname": "peer30.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer30.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer31": {
+          "requests": "grpc://localhost:9063",
+          "events": "grpc://localhost:9064",
+          "server-hostname": "peer31.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer31.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer32": {
+          "requests": "grpc://localhost:9065",
+          "events": "grpc://localhost:9066",
+          "server-hostname": "peer32.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer32.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer33": {
+          "requests": "grpc://localhost:9067",
+          "events": "grpc://localhost:9068",
+          "server-hostname": "peer29.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer33.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer34": {
+          "requests": "grpc://localhost:9069",
+          "events": "grpc://localhost:9070",
+          "server-hostname": "peer34.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer34.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer35": {
+          "requests": "grpc://localhost:9071",
+          "events": "grpc://localhost:9072",
+          "server-hostname": "peer35.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer35.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer36": {
+          "requests": "grpc://localhost:9073",
+          "events": "grpc://localhost:9074",
+          "server-hostname": "peer36.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer36.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer37": {
+          "requests": "grpc://localhost:9075",
+          "events": "grpc://localhost:9076",
+          "server-hostname": "peer37.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer37.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer38": {
+          "requests": "grpc://localhost:9077",
+          "events": "grpc://localhost:9078",
+          "server-hostname": "peer38.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer38.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer39": {
+          "requests": "grpc://localhost:9079",
+          "events": "grpc://localhost:9080",
+          "server-hostname": "peer39.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer39.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer40": {
+          "requests": "grpc://localhost:9081",
+          "events": "grpc://localhost:9082",
+          "server-hostname": "peer40.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer40.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer41": {
+          "requests": "grpc://localhost:9083",
+          "events": "grpc://localhost:9084",
+          "server-hostname": "peer41.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer41.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer42": {
+          "requests": "grpc://localhost:9085",
+          "events": "grpc://localhost:9086",
+          "server-hostname": "peer42.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer42.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer43": {
+          "requests": "grpc://localhost:9087",
+          "events": "grpc://localhost:9088",
+          "server-hostname": "peer43.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer43.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer44": {
+          "requests": "grpc://localhost:9089",
+          "events": "grpc://localhost:9090",
+          "server-hostname": "peer44.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer44.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer45": {
+          "requests": "grpc://localhost:9091",
+          "events": "grpc://localhost:9092",
+          "server-hostname": "peer45.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer45.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer46": {
+          "requests": "grpc://localhost:9093",
+          "events": "grpc://localhost:9094",
+          "server-hostname": "peer46.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer46.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer47": {
+          "requests": "grpc://localhost:9095",
+          "events": "grpc://localhost:9096",
+          "server-hostname": "peer47.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer47.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer48": {
+          "requests": "grpc://localhost:9097",
+          "events": "grpc://localhost:9098",
+          "server-hostname": "peer48.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer48.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer49": {
+          "requests": "grpc://localhost:9099",
+          "events": "grpc://localhost:9100",
+          "server-hostname": "peer49.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer49.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer50": {
+          "requests": "grpc://localhost:9101",
+          "events": "grpc://localhost:9102",
+          "server-hostname": "peer50.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer50.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer51": {
+          "requests": "grpc://localhost:9103",
+          "events": "grpc://localhost:9104",
+          "server-hostname": "peer51.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer51.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer52": {
+          "requests": "grpc://localhost:9105",
+          "events": "grpc://localhost:9106",
+          "server-hostname": "peer52.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer52.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer53": {
+          "requests": "grpc://localhost:9107",
+          "events": "grpc://localhost:9108",
+          "server-hostname": "peer53.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer53.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer54": {
+          "requests": "grpc://localhost:9109",
+          "events": "grpc://localhost:9110",
+          "server-hostname": "peer54.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer54.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer55": {
+          "requests": "grpc://localhost:9111",
+          "events": "grpc://localhost:9112",
+          "server-hostname": "peer55.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer55.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer56": {
+          "requests": "grpc://localhost:9113",
+          "events": "grpc://localhost:9114",
+          "server-hostname": "peer56.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer56.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer57": {
+          "requests": "grpc://localhost:9115",
+          "events": "grpc://localhost:9116",
+          "server-hostname": "peer57.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer57.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer58": {
+          "requests": "grpc://localhost:9117",
+          "events": "grpc://localhost:9118",
+          "server-hostname": "peer58.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer58.org1.example.com/tls/ca.crt"
+        }
+        ,
+        "peer59": {
+          "requests": "grpc://localhost:9119",
+          "events": "grpc://localhost:9120",
+          "server-hostname": "peer59.org1.example.com",
+          "tls_cacerts": "network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/peers/peer59.org1.example.com/tls/ca.crt"
+        }
+      }
+    },
+    "channel": [
+      {
+        "name": "mychannel",
+        "deployed": false,
+        "config": "network/fabric-v1.4/config/mychannel.tx",
+        "organizations": ["org1"]
+      }
+    ],
+    "chaincodes": [
+      {"id": "simple", "path": "contract/fabric/simple/go", "language":"golang", "version": "v0", "channel": "mychannel"}
+    ],
+    "endorsement-policy": {
+      "identities": [
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Org1MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "admin",
+            "mspId": "Org1MSP"
+          }
+        }
+      ],
+      "policy": { "1-of": [{"signed-by": 0}]}
+    },
+    "context": {
+      "open": "mychannel",
+      "query": "mychannel"
+    }
+  },
+  "info" : {
+    "Version": "1.4.0",
+    "Size": "1 Org with 60 Peers",
+    "Orderer": "Solo",
+    "Distribution": "Single Host"
+  }
+}

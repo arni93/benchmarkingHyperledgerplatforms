@@ -1,0 +1,92 @@
+{
+  "caliper": {  
+    "blockchain": "iroha",
+    "command" : {
+      "start": "docker-compose -f network/iroha/iroha-20-validators/docker-compose.yml up -d",
+      "end" : "docker-compose -f network/iroha/iroha-20-validators/docker-compose.yml down; docker rm -f $(docker ps -aq)"
+    }
+  },
+  "iroha": {
+    "admin" :{
+      "account":"admin",
+      "domain" : "test",
+      "key-pub":"network/iroha/iroha-20-validators/admin@test.pub",
+      "key-priv":"network/iroha/iroha-20-validators/admin@test.priv"
+    },
+    "network": {
+      "node0": {
+        "torii": "localhost:50000"
+      },
+      "node1": {
+        "torii": "localhost:50001"
+      },
+      "node2": {
+        "torii": "localhost:50002"
+      },
+      "node3": {
+        "torii": "localhost:50003"
+      },
+      "node4": {
+        "torii": "localhost:50004"
+      },
+      "node5": {
+        "torii": "localhost:50005"
+      },
+      "node6": {
+        "torii": "localhost:50006"
+      },
+      "node7": {
+        "torii": "localhost:50007"
+      },
+      "node8": {
+        "torii": "localhost:50008"
+      },
+      "node9": {
+        "torii": "localhost:50009"
+      }
+      ,
+      "node10": {
+        "torii": "localhost:50010"
+      }
+      ,
+      "node11": {
+        "torii": "localhost:50011"
+      }
+      ,
+      "node12": {
+        "torii": "localhost:50012"
+      }
+      ,
+      "node13": {
+        "torii": "localhost:50013"
+      }
+      ,
+      "node14": {
+        "torii": "localhost:50014"
+      }
+      ,
+      "node15": {
+        "torii": "localhost:50015"
+      }
+      ,
+      "node16": {
+        "torii": "localhost:50016"
+      }
+      ,
+      "node17": {
+        "torii": "localhost:50017"
+      }
+      ,
+      "node18": {
+        "torii": "localhost:50018"
+      }
+      ,
+      "node19": {
+        "torii": "localhost:50019"
+      }                     
+    },
+    "fakecontract": [
+      {"factory": "src/contract/iroha/simple/factory.js", "id":["simple"]}
+    ]
+  }
+}

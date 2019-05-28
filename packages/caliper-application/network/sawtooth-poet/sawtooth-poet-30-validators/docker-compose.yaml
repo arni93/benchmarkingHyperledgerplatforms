@@ -1,0 +1,1934 @@
+# Copyright 2018 Intel Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ------------------------------------------------------------------------------
+
+version: '2.1'
+
+volumes:
+  poet-shared:
+
+services:
+
+  shell:
+    image: hyperledger/sawtooth-all:1.0
+    container_name: shell-default
+    entrypoint: "bash -c \"\
+        sawtooth keygen && \
+        tail -f /dev/null \
+        \""
+
+  settings-tp-0:
+    container_name: settings-tp-0
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-0:4004
+
+
+  settings-tp-1:
+    container_name: settings-tp-1
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-1:4004
+
+  settings-tp-2:
+    container_name: settings-tp-2
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-2:4004
+
+
+  settings-tp-3:
+    container_name: settings-tp-3
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-3:4004
+
+  settings-tp-4:
+    container_name: settings-tp-4
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-4:4004
+
+  settings-tp-5:
+    container_name: settings-tp-5
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-5:4004
+
+  settings-tp-6:
+    container_name: settings-tp-6
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-6:4004
+
+  settings-tp-7:
+    container_name: settings-tp-7
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-7:4004
+
+
+  settings-tp-8:
+    container_name: settings-tp-8
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-8:4004
+
+  settings-tp-9:
+    container_name: settings-tp-9
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-9:4004
+
+  settings-tp-10:
+    container_name: settings-tp-10
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-10:4004
+
+  settings-tp-11:
+    container_name: settings-tp-11
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-11:4004
+
+  settings-tp-12:
+    container_name: settings-tp-12
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-12:4004
+
+  settings-tp-13:
+    container_name: settings-tp-13
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-13:4004
+
+  settings-tp-14:
+    container_name: settings-tp-14
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-14:4004
+
+  settings-tp-15:
+    container_name: settings-tp-15
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-15:4004
+
+  settings-tp-16:
+    container_name: settings-tp-16
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-16:4004
+
+  settings-tp-17:
+    container_name: settings-tp-17
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-17:4004
+
+  settings-tp-18:
+    container_name: settings-tp-18
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-18:4004
+
+  settings-tp-19:
+    container_name: settings-tp-19
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-19:4004
+
+  settings-tp-20:
+    container_name: settings-tp-20
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-20:4004
+
+  settings-tp-21:
+    container_name: settings-tp-21
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-21:4004
+
+  settings-tp-22:
+    container_name: settings-tp-22
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-22:4004
+
+  settings-tp-23:
+    container_name: settings-tp-23
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-23:4004
+
+  settings-tp-24:
+    container_name: settings-tp-24
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-24:4004
+
+  settings-tp-25:
+    container_name: settings-tp-25
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-25:4004
+
+  settings-tp-26:
+    container_name: settings-tp-26
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-26:4004
+
+  settings-tp-27:
+    container_name: settings-tp-27
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-27:4004
+
+  settings-tp-28:
+    container_name: settings-tp-28
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-28:4004
+
+  settings-tp-29:
+    container_name: settings-tp-29
+    image: hyperledger/sawtooth-settings-tp:1.0
+    command: settings-tp -v --connect tcp://validator-29:4004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  simple-tp-python-0:
+    container_name: simple-tp-python-default-0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -vv -C tcp://validator-0:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-1:
+    container_name: simple-tp-python-default-1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-1:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-2:
+    container_name: simple-tp-python-default-2
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-2:4004
+    stop_signal: SIGKILL
+
+
+  simple-tp-python-3:
+    container_name: simple-tp-python-default-3
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-3:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-4:
+    container_name: simple-tp-python-default-4
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-4:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-5:
+    container_name: simple-tp-python-default-5
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -vv -C tcp://validator-5:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-6:
+    container_name: simple-tp-python-default-6
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-6:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-7:
+    container_name: simple-tp-python-default-7
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-7:4004
+    stop_signal: SIGKILL
+
+
+  simple-tp-python-8:
+    container_name: simple-tp-python-default-8
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-8:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-9:
+    container_name: simple-tp-python-default-9
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-9:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-10:
+    container_name: simple-tp-python-default-10
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-10:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-11:
+    container_name: simple-tp-python-default-11
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-11:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-12:
+    container_name: simple-tp-python-default-12
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-12:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-13:
+    container_name: simple-tp-python-default-13
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-13:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-14:
+    container_name: simple-tp-python-default-14
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-14:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-15:
+    container_name: simple-tp-python-default-15
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-15:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-16:
+    container_name: simple-tp-python-default-16
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-16:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-17:
+    container_name: simple-tp-python-default-17
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-17:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-18:
+    container_name: simple-tp-python-default-18
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-18:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-19:
+    container_name: simple-tp-python-default-19
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-19:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-20:
+    container_name: simple-tp-python-default-20
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-20:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-21:
+    container_name: simple-tp-python-default-21
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-21:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-22:
+    container_name: simple-tp-python-default-22
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-22:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-23:
+    container_name: simple-tp-python-default-23
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-23:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-24:
+    container_name: simple-tp-python-default-24
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-24:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-25:
+    container_name: simple-tp-python-default-25
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-25:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-26:
+    container_name: simple-tp-python-default-26
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-26:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-27:
+    container_name: simple-tp-python-default-27
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-27:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-28:
+    container_name: simple-tp-python-default-28
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-28:4004
+    stop_signal: SIGKILL
+
+  simple-tp-python-29:
+    container_name: simple-tp-python-default-29
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    expose:
+      - 4004
+    volumes:
+      - '../../../src/:/project/'
+    entrypoint: simple-tp-python -v -C tcp://validator-29:4004
+    stop_signal: SIGKILL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  poet-validator-registry-tp-0:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-0
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-0:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-1:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-1
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-1:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-2:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-2
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-2:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-3:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-3
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-3:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-4:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-4
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-4:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-5:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-5
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-5:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-6:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-6
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-6:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-7:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-7
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-7:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-8:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-8
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-8:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-9:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-9
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-9:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-10:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-10
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-10:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-11:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-11
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-11:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-12:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-12
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-12:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-13:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-13
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-13:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-14:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-14
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-14:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-15:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-15
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-15:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-16:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-16
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-16:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-17:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-17
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-17:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-18:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-18
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-18:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-19:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-19
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-19:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-20:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-20
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-20:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-21:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-21
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-21:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-22:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-22
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-22:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-23:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-23
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-23:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-24:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-24
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-24:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-25:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-25
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-25:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-26:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-26
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-26:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-27:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-27
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-27:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-28:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-28
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-28:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+  poet-validator-registry-tp-29:
+    image: hyperledger/sawtooth-poet-validator-registry-tp:1.0
+    container_name: poet-validator-registry-tp-29
+    expose:
+      - 4004
+    command: poet-validator-registry-tp -v -C tcp://validator-29:4004
+    environment:
+      PYTHONPATH: /project/sawtooth-core/consensus/poet/common
+    stop_signal: SIGKILL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  validator-0:
+    container_name: validator-0
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    ports:
+      - '4004:4004'
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawset genesis -k /etc/sawtooth/keys/validator.priv -o config-genesis.batch && \
+        sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config.batch \
+            sawtooth.consensus.algorithm=poet \
+            sawtooth.poet.report_public_key_pem=\"$$(cat /etc/sawtooth/simulator_rk_pub.pem)\" \
+            sawtooth.poet.valid_enclave_measurements=$$(poet enclave measurement) \
+            sawtooth.poet.valid_enclave_basenames=$$(poet enclave basename) && \
+        poet registration create \
+            -k /etc/sawtooth/keys/validator.priv \
+            --enclave-module simulator \
+            -o poet.batch && \
+        sawset proposal create \
+            -k /etc/sawtooth/keys/validator.priv \
+            -o config-settings.batch \
+            sawtooth.poet.population_estimate_sample_size=10 && \
+        sawadm genesis config-genesis.batch config.batch config-settings.batch poet.batch && \
+        sawtooth-validator -v \
+            --endpoint tcp://validator-0:8800 \
+            --bind component:tcp://eth0:4004 \
+            --bind network:tcp://eth0:8800 \
+            --peering dynamic \
+            --scheduler parallel \
+            --network trust \
+      "
+
+  validator-1:
+    container_name: validator-1
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-2:
+    container_name: validator-2
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-3:
+    container_name: validator-3
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-4:
+    container_name: validator-4
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-5:
+    container_name: validator-5
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-5:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+  validator-6:
+    container_name: validator-6
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-6:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-7:
+    container_name: validator-7
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-7:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-8:
+    container_name: validator-8
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-8:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-9:
+    container_name: validator-9
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-9:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-10:
+    container_name: validator-10
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-10:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-11:
+    container_name: validator-11
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-11:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-12:
+    container_name: validator-12
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-12:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-13:
+    container_name: validator-13
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-13:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-14:
+    container_name: validator-14
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-14:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-15:
+    container_name: validator-15
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-15:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-16:
+    container_name: validator-16
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-16:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-17:
+    container_name: validator-17
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-17:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-18:
+    container_name: validator-18
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-18:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-19:
+    container_name: validator-19
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-19:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-20:
+    container_name: validator-20
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-20:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-21:
+    container_name: validator-21
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-21:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+  validator-22:
+    container_name: validator-22
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-22:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-23:
+    container_name: validator-23
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-23:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-24:
+    container_name: validator-24
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-24:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-25:
+    container_name: validator-25
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-25:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-26:
+    container_name: validator-26
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-26:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-27:
+    container_name: validator-27
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-27:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-28:
+    container_name: validator-28
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-28:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+  validator-29:
+    container_name: validator-29
+    image: hyperledger/sawtooth-validator:1.0
+    expose:
+      - 4004
+      - 8800
+    command: |
+      bash -c "
+        if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+          sawadm keygen &&
+          sawtooth keygen my_key
+        fi;
+        sawtooth-validator -v --endpoint tcp://validator-29:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+      "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  rest-api-0:
+    container_name: rest-api-0
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8000:8008'
+    depends_on:
+      - validator-0
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-0:4004 \
+          --bind rest-api-0:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-1:
+    container_name: rest-api-1
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8001:8008'
+    depends_on:
+      - validator-1
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-1:4004 \
+          --bind rest-api-1:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-2:
+    container_name: rest-api-2
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8002:8008'
+    depends_on:
+      - validator-2
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-2:4004 \
+          --bind rest-api-2:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-3:
+    container_name: rest-api-3
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8003:8008'
+    depends_on:
+      - validator-3
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-3:4004 \
+          --bind rest-api-3:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-4:
+    container_name: rest-api-4
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8004:8008'
+    depends_on:
+      - validator-4
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-4:4004 \
+          --bind rest-api-4:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-5:
+    container_name: rest-api-5
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8005:8008'
+    depends_on:
+      - validator-5
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-5:4004 \
+          --bind rest-api-5:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-6:
+    container_name: rest-api-6
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8006:8008'
+    depends_on:
+      - validator-6
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-6:4004 \
+          --bind rest-api-6:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-7:
+    container_name: rest-api-7
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8007:8008'
+    depends_on:
+      - validator-7
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-7:4004 \
+          --bind rest-api-7:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-8:
+    container_name: rest-api-8
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8008:8008'
+    depends_on:
+      - validator-8
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-8:4004 \
+          --bind rest-api-8:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-9:
+    container_name: rest-api-9
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8009:8008'
+    depends_on:
+      - validator-9
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-9:4004 \
+          --bind rest-api-9:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-10:
+    container_name: rest-api-10
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8010:8008'
+    depends_on:
+      - validator-10
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-10:4004 \
+          --bind rest-api-10:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-11:
+    container_name: rest-api-11
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8011:8008'
+    depends_on:
+      - validator-11
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-11:4004 \
+          --bind rest-api-11:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-12:
+    container_name: rest-api-12
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8012:8008'
+    depends_on:
+      - validator-12
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-12:4004 \
+          --bind rest-api-12:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-13:
+    container_name: rest-api-13
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8013:8008'
+    depends_on:
+      - validator-13
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-13:4004 \
+          --bind rest-api-13:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-14:
+    container_name: rest-api-14
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8014:8008'
+    depends_on:
+      - validator-14
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-14:4004 \
+          --bind rest-api-14:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-15:
+    container_name: rest-api-15
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8015:8008'
+    depends_on:
+      - validator-15
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-15:4004 \
+          --bind rest-api-15:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-16:
+    container_name: rest-api-16
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8016:8008'
+    depends_on:
+      - validator-16
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-16:4004 \
+          --bind rest-api-16:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-17:
+    container_name: rest-api-17
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8017:8008'
+    depends_on:
+      - validator-17
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-17:4004 \
+          --bind rest-api-17:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-18:
+    container_name: rest-api-18
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8018:8008'
+    depends_on:
+      - validator-18
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-18:4004 \
+          --bind rest-api-18:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-19:
+    container_name: rest-api-19
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8019:8008'
+    depends_on:
+      - validator-19
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-19:4004 \
+          --bind rest-api-19:8008
+      "
+    stop_signal: SIGKILL
+
+
+  rest-api-20:
+    container_name: rest-api-20
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8020:8008'
+    depends_on:
+      - validator-20
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-20:4004 \
+          --bind rest-api-20:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-21:
+    container_name: rest-api-21
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8021:8008'
+    depends_on:
+      - validator-21
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-21:4004 \
+          --bind rest-api-21:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-22:
+    container_name: rest-api-22
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8022:8008'
+    depends_on:
+      - validator-22
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-22:4004 \
+          --bind rest-api-22:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-23:
+    container_name: rest-api-23
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8023:8008'
+    depends_on:
+      - validator-23
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-23:4004 \
+          --bind rest-api-23:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-24:
+    container_name: rest-api-24
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8024:8008'
+    depends_on:
+      - validator-24
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-24:4004 \
+          --bind rest-api-24:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-25:
+    container_name: rest-api-25
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8025:8008'
+    depends_on:
+      - validator-25
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-25:4004 \
+          --bind rest-api-25:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-26:
+    container_name: rest-api-26
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8026:8008'
+    depends_on:
+      - validator-26
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-26:4004 \
+          --bind rest-api-26:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-27:
+    container_name: rest-api-27
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8027:8008'
+    depends_on:
+      - validator-27
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-27:4004 \
+          --bind rest-api-27:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-28:
+    container_name: rest-api-28
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8028:8008'
+    depends_on:
+      - validator-28
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-28:4004 \
+          --bind rest-api-28:8008
+      "
+    stop_signal: SIGKILL
+
+  rest-api-29:
+    container_name: rest-api-29
+    image: hyperledger/sawtooth-rest-api:1.0
+    expose:
+      - 8008
+    ports:
+      - '8029:8008'
+    depends_on:
+      - validator-29
+    command: |
+      bash -c "
+        sawtooth-rest-api \
+          --connect tcp://validator-29:4004 \
+          --bind rest-api-29:8008
+      "
+    stop_signal: SIGKILL

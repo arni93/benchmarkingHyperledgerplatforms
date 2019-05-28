@@ -1,0 +1,24 @@
+{
+  "caliper":{
+    "blockchain": "sawtooth",
+    "command" : {
+      "start": "docker-compose -f network/sawtooth-poet/example-network/sawtooth-poet-2-nodes.yaml up -d",
+      "end" : "docker-compose -f network/sawtooth-poet/example-network/sawtooth-poet-2-nodes.yaml down;docker rm -f $(docker ps -aq)"
+    }
+  },
+  "sawtooth": {
+    "batchBuilders": {
+      "simple": {
+        "1.0": "src/contract/sawtooth/simple/SimpleBatchBuilder.js"
+      }
+    },
+    "network": {
+      "restapi": {
+        "urls": ["http://127.0.0.1:8008"]
+      },
+      "validator": {
+        "url": "tcp://127.0.0.1:4004"
+      }
+    }
+  }
+}

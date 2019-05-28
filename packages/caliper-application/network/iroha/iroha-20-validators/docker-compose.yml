@@ -1,0 +1,733 @@
+version: '3'
+
+services:
+  iroha-node0:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node0
+    ports:
+      - "50000:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg0
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - CCACHE_DIR=/tmp/ccache
+      - KEY=nodes/node0
+    depends_on:
+      - iroha_pg0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg0:5432",
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node0/config.sample", 
+      "--keypair_name", "node0", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node1:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node1
+    ports:
+      - "50001:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg1
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node1
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg1
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg1:5432",
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block",
+      "--config", "/opt/iroha/nodes/node1/config.sample", 
+      "--keypair_name", "node1", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+
+  iroha-node2:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node2
+    ports:
+      - "50002:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg2
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node2
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg2
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg2:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node2/config.sample", 
+      "--keypair_name", "node2", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+
+  iroha-node3:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node3
+    ports:
+      - "50003:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg3
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node3
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg3
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg3:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node3/config.sample", 
+      "--keypair_name", "node3", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node4:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node4
+    ports:
+      - "50004:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg4
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node4
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg4
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", "iroha_pg4:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node4/config.sample", 
+      "--keypair_name", "node4", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node5:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node5
+    ports:
+      - "50005:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg5
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - CCACHE_DIR=/tmp/ccache
+      - KEY=nodes/node5
+    depends_on:
+      - iroha_pg5
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg5:5432",
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node5/config.sample", 
+      "--keypair_name", "node5", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node6:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node6
+    ports:
+      - "50006:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg6
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node6
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg6
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg6:5432",
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block",
+      "--config", "/opt/iroha/nodes/node6/config.sample", 
+      "--keypair_name", "node6", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+
+  iroha-node7:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node7
+    ports:
+      - "50007:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg7
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node7
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg7
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg7:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node7/config.sample", 
+      "--keypair_name", "node7", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+
+  iroha-node8:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node8
+    ports:
+      - "50008:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg8
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node8
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg8
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg8:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node8/config.sample", 
+      "--keypair_name", "node8", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node9:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node9
+    ports:
+      - "50009:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg9
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node9
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg9
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg9:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node9/config.sample", 
+      "--keypair_name", "node9", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node10:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node10
+    ports:
+      - "50010:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg10
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node10
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg10
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg10:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node10/config.sample", 
+      "--keypair_name", "node10", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node11:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node11
+    ports:
+      - "50011:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg11
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node11
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg11
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg11:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node11/config.sample", 
+      "--keypair_name", "node11", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node12:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node12
+    ports:
+      - "50012:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg12
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node12
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg12
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg12:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node12/config.sample", 
+      "--keypair_name", "node12", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node13:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node13
+    ports:
+      - "50013:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg13
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node13
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg13
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg13:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node13/config.sample", 
+      "--keypair_name", "node13", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node14:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node14
+    ports:
+      - "50014:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg14
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node14
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg14
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg14:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node14/config.sample", 
+      "--keypair_name", "node14", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node15:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node15
+    ports:
+      - "50015:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg15
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node15
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg15
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg15:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node15/config.sample", 
+      "--keypair_name", "node15", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node16:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node16
+    ports:
+      - "50016:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg16
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node16
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg16
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg16:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node16/config.sample", 
+      "--keypair_name", "node16", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node17:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node17
+    ports:
+      - "50017:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg17
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node17
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg17
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg17:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node17/config.sample", 
+      "--keypair_name", "node17", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node18:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node18
+    ports:
+      - "50018:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg18
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node18
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg18
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg18:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node18/config.sample", 
+      "--keypair_name", "node18", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node19:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node19
+    ports:
+      - "50019:50051"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg19
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=nodes/node19
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg19
+      - iroha-node0
+    entrypoint: ["./wait-for-it.sh", 
+      "iroha_pg19:5432", 
+      "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
+      "--config", "/opt/iroha/nodes/node19/config.sample", 
+      "--keypair_name", "node19", "--overwrite-ledger"]
+    tty: true
+    volumes:
+      - ./../nodes/:/opt/iroha/nodes
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+
+
+
+
+
+
+  iroha_pg0:
+    image: postgres:9.5
+    container_name: iroha_pg0
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg1:
+    image: postgres:9.5
+    container_name: iroha_pg1
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg2:
+    image: postgres:9.5
+    container_name: iroha_pg2
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg3:
+    image: postgres:9.5
+    container_name: iroha_pg3
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg4:
+    image: postgres:9.5
+    container_name: iroha_pg4
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg5:
+    image: postgres:9.5
+    container_name: iroha_pg5
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg6:
+    image: postgres:9.5
+    container_name: iroha_pg6
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg7:
+    image: postgres:9.5
+    container_name: iroha_pg7
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg8:
+    image: postgres:9.5
+    container_name: iroha_pg8
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg9:
+    image: postgres:9.5
+    container_name: iroha_pg9
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg10:
+    image: postgres:9.5
+    container_name: iroha_pg10
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg11:
+    image: postgres:9.5
+    container_name: iroha_pg11
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg12:
+    image: postgres:9.5
+    container_name: iroha_pg12
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg13:
+    image: postgres:9.5
+    container_name: iroha_pg13
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg14:
+    image: postgres:9.5
+    container_name: iroha_pg14
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg15:
+    image: postgres:9.5
+    container_name: iroha_pg15
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg16:
+    image: postgres:9.5
+    container_name: iroha_pg16
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg17:
+    image: postgres:9.5
+    container_name: iroha_pg17
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg18:
+    image: postgres:9.5
+    container_name: iroha_pg18
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg19:
+    image: postgres:9.5
+    container_name: iroha_pg19
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+
+volumes:
+  ccache-data:

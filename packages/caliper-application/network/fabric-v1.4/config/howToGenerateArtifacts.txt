@@ -1,0 +1,15 @@
+//https://hyperledger-fabric.readthedocs.io/en/latest/build_network.html#crypto-generator
+
+//to generate certificates on the crypto-config.yaml file
+
+./cryptogen generate --config=./crypto-config.yaml
+
+
+//to create the orderer genesis block, firstly export FABRIC_CFG_PATH
+export FABRIC_CFG_PATH=$PWD
+//then
+./configtxgen -profile OrgsOrdererGenesis -channelID system-channel -outputBlock orgs.genesis.block
+
+
+last step is to create channel configuration transaction
+./configtxgen -profile OrgsChannel -outputCreateChannelTx mychannel.tx -channelID mychannel
