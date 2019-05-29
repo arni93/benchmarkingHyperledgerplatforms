@@ -1,0 +1,104 @@
+---
+test:
+  clients:
+    type: local
+    number: 1
+  rounds:
+  - label: open
+    txNumber:
+    - 50
+    - 200
+    - 300
+    - 400
+    - 500
+    - 600
+    - 700
+    - 800
+    - 900
+    - 1000
+    - 1500
+    - 2000
+    - 2500
+    - 3000
+    - 3500
+    - 4000
+    - 4500
+    - 5000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 10
+    - type: fixed-rate
+      opts:
+        tps: 20
+    - type: fixed-rate
+      opts:
+        tps: 30
+    - type: fixed-rate
+      opts:
+        tps: 40
+    - type: fixed-rate
+      opts:
+        tps: 50
+    - type: fixed-rate
+      opts:
+        tps: 60
+    - type: fixed-rate
+      opts:
+        tps: 70
+    - type: fixed-rate
+      opts:
+        tps: 80
+    - type: fixed-rate
+      opts:
+        tps: 90
+    - type: fixed-rate
+      opts:
+        tps: 100
+    - type: fixed-rate
+      opts:
+        tps: 150
+    - type: fixed-rate
+      opts:
+        tps: 200
+    - type: fixed-rate
+      opts:
+        tps: 250
+    - type: fixed-rate
+      opts:
+        tps: 300
+    - type: fixed-rate
+      opts:
+        tps: 350
+    - type: fixed-rate
+      opts:
+        tps: 400
+    - type: fixed-rate
+      opts:
+        tps: 450
+    - type: fixed-rate
+      opts:
+        tps: 500
+    arguments:
+      money: 10000
+    callback: benchmark/simple/open.js
+  - label: query
+    txNumber:
+    - 50
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 50
+    callback: benchmark/simple/query.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1
