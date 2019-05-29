@@ -2,8 +2,8 @@
   "caliper":{
     "blockchain": "sawtooth",
     "command" : {
-      "start": "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/sawtooth-poet-5-validators.yaml up -d; sleep 10s",
-      "end" : "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/sawtooth-poet-5-validators.yaml down;docker rm -f $(docker ps -aq)"
+      "start": "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/docker-compose.yaml up -d; sleep 10s",
+      "end" : "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/docker-compose.yaml down;docker rm -f $(docker ps -aq)"
     }
   },
   "sawtooth": {

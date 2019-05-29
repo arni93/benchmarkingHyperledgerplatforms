@@ -1,28 +1,48 @@
-## Hyperledger Caliper
+prerequisites for running caliper tests:
 
-Welcome to the Hyperledger Caliper project. Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
+You must have installed:
 
-Currently supported blockchain solutions:
-* [fabric v1.0+](https://github.com/hyperledger/fabric), the lastest version that has been verified is v1.1.0
-* [sawtooth 1.0+](https://github.com/hyperledger/sawtooth-core)
-* [Iroha 1.0 beta-3](https://github.com/hyperledger/iroha)
-* [Burrow 1.0](https://github.com/hyperledger/burrow)
+1) NodeJS 8.X
+2) node-gyp
+3) Docker
+4) Docker-compose
 
-[Hyperledger Composer](https://github.com/hyperledger/composer) is also supported.
+When all prerequistes are fulfilled:
+1) In main(the same as this file) catalog run commands:
+    1.1 npm install
+    1.2 npm run repoclean
+    1.3 npm run bootstrap
 
-Currently supported performance indicators:
-* Success rate
-* Transaction/Read throughput
-* Transaction/Read latency(minimum, maximum, average, percentile)
-* Resource consumption (CPU, Memory, Network IO,...)
+2) to run example tests go to packages/caliper-application/scripts/
+    2.1 to run example fabric test use command
+    node run-benchmark.js -c ../benchmark/simple/config.yaml -n ../network/fabric-v1.4/1org10peer/
 
-See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
+    2.2 to run example Sawtooth test
+    node run-benchmark.js -c ../benchmark/simple/config-sawtooth.yaml -n ../network/sawtooth-poet/sawtooth-poet-10-validators/sawtooth.json
 
-For more information please consult the [documentation site](https://hyperledger.github.io/caliper/)
+    2.3 to run example iroha test
 
-## How to contribute
+3) All test should be able to run succesfully on a local machine, tests with more validators might be not able to run due to too low CPU power.
 
-We welcome contributions to the Caliper code base. Please see [Contributing](/CONTRIBUTING.md) for more information.
 
-## License
-The Caliper codebase is release under the [Apache 2.0 license](./LICENSE). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
+How to install required software:
+    1) NodeJS 8
+        sudo apt update
+        sudo apt install nodejs npm
+        nodejs --version
+
+        sudo apt install npm
+        npm --version
+    2) node-gyp
+        sudo npm install -g node-gyp
+
+    3) docker
+        sudo apt-get update
+        sudo apt-get install docker-ce docker-ce-cli containerd.io
+        sudo docker run hello-world
+    
+    4) docker-compose
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose --version
