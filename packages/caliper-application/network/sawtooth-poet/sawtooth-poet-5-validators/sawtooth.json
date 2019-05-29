@@ -2,7 +2,7 @@
   "caliper":{
     "blockchain": "sawtooth",
     "command" : {
-      "start": "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/docker-compose.yaml up -d; sleep 10s",
+      "start": "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/docker-compose.yaml up -d; sleep 15s",
       "end" : "docker-compose -f network/sawtooth-poet/sawtooth-poet-5-validators/docker-compose.yaml down;docker rm -f $(docker ps -aq)"
     }
   },
@@ -15,11 +15,7 @@
     "network": {
       "restapi": {
         "urls": [
-        "http://127.0.0.1:8000",
-        "http://127.0.0.1:8001",
-        "http://127.0.0.1:8002",
-        "http://127.0.0.1:8003",
-        "http://127.0.0.1:8004"
+        "http://127.0.0.1:8000"
         ]
       },
       "validator": {

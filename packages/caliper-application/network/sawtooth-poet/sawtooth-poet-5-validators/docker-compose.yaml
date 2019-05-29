@@ -200,9 +200,11 @@ services:
         sawset proposal create \
             -k /etc/sawtooth/keys/validator.priv \
             -o config-settings.batch \
+            sawtooth.poet.initial_wait_time=5 \
+            sawtooth.poet.target_wait_time=1 \
             sawtooth.validator.max_transactions_per_block=10 && \
         sawadm genesis config-genesis.batch config.batch config-settings.batch poet.batch && \
-        sawtooth-validator -v \
+        sawtooth-validator -vvv \
             --endpoint tcp://validator-0:8800 \
             --bind component:tcp://eth0:4004 \
             --bind network:tcp://eth0:8800 \
@@ -223,8 +225,11 @@ services:
           sawadm keygen &&
           sawtooth keygen my_key
         fi;
-        sawtooth-validator -v --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800 
       "
+    depends_on:
+      - validator-0
+
 
   validator-2:
     container_name: validator-2
@@ -238,8 +243,10 @@ services:
           sawadm keygen &&
           sawtooth keygen my_key
         fi;
-        sawtooth-validator -v --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
+    depends_on:
+      - validator-0      
 
   validator-3:
     container_name: validator-3
@@ -253,8 +260,10 @@ services:
           sawadm keygen &&
           sawtooth keygen my_key
         fi;
-        sawtooth-validator -v --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
+    depends_on:
+      - validator-0
 
   validator-4:
     container_name: validator-4
@@ -268,9 +277,10 @@ services:
           sawadm keygen &&
           sawtooth keygen my_key
         fi;
-        sawtooth-validator -v --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
+        sawtooth-validator -vvv --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
 
 
 

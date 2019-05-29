@@ -46,3 +46,7 @@ How to install required software:
 
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
+
+    5) visual studio code
+        sudo apt update
+        sudo apt install code

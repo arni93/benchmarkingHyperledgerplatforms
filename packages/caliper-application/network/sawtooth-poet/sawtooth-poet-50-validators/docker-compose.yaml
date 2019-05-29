@@ -1473,6 +1473,8 @@ services:
         sawset proposal create \
             -k /etc/sawtooth/keys/validator.priv \
             -o config-settings.batch \
+            sawtooth.poet.initial_wait_time=5 \
+            sawtooth.poet.target_wait_time=1 \
             sawtooth.validator.max_transactions_per_block=10 && \
         sawadm genesis config-genesis.batch config.batch config-settings.batch poet.batch && \
         sawtooth-validator -v \
@@ -1498,7 +1500,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-1:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-2:
     container_name: validator-2
     image: hyperledger/sawtooth-validator:1.0
@@ -1513,7 +1516,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-2:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-3:
     container_name: validator-3
     image: hyperledger/sawtooth-validator:1.0
@@ -1528,7 +1532,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-3:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-4:
     container_name: validator-4
     image: hyperledger/sawtooth-validator:1.0
@@ -1543,7 +1548,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-4:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-5:
     container_name: validator-5
     image: hyperledger/sawtooth-validator:1.0
@@ -1558,6 +1564,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-5:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
+    depends_on:
+      - validator-0      
   validator-6:
     container_name: validator-6
     image: hyperledger/sawtooth-validator:1.0
@@ -1572,7 +1580,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-6:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-7:
     container_name: validator-7
     image: hyperledger/sawtooth-validator:1.0
@@ -1587,7 +1596,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-7:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-8:
     container_name: validator-8
     image: hyperledger/sawtooth-validator:1.0
@@ -1602,7 +1612,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-8:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-9:
     container_name: validator-9
     image: hyperledger/sawtooth-validator:1.0
@@ -1617,7 +1628,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-9:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-10:
     container_name: validator-10
     image: hyperledger/sawtooth-validator:1.0
@@ -1632,7 +1644,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-10:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-11:
     container_name: validator-11
     image: hyperledger/sawtooth-validator:1.0
@@ -1647,7 +1660,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-11:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-12:
     container_name: validator-12
     image: hyperledger/sawtooth-validator:1.0
@@ -1662,7 +1676,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-12:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-13:
     container_name: validator-13
     image: hyperledger/sawtooth-validator:1.0
@@ -1677,7 +1692,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-13:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-14:
     container_name: validator-14
     image: hyperledger/sawtooth-validator:1.0
@@ -1692,7 +1708,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-14:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-15:
     container_name: validator-15
     image: hyperledger/sawtooth-validator:1.0
@@ -1707,7 +1724,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-15:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-16:
     container_name: validator-16
     image: hyperledger/sawtooth-validator:1.0
@@ -1722,7 +1740,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-16:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-17:
     container_name: validator-17
     image: hyperledger/sawtooth-validator:1.0
@@ -1737,7 +1756,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-17:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-18:
     container_name: validator-18
     image: hyperledger/sawtooth-validator:1.0
@@ -1752,7 +1772,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-18:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-19:
     container_name: validator-19
     image: hyperledger/sawtooth-validator:1.0
@@ -1767,7 +1788,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-19:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-20:
     container_name: validator-20
     image: hyperledger/sawtooth-validator:1.0
@@ -1782,7 +1804,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-20:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-21:
     container_name: validator-21
     image: hyperledger/sawtooth-validator:1.0
@@ -1797,6 +1820,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-21:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
+    depends_on:
+      - validator-0      
   validator-22:
     container_name: validator-22
     image: hyperledger/sawtooth-validator:1.0
@@ -1811,7 +1836,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-22:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-23:
     container_name: validator-23
     image: hyperledger/sawtooth-validator:1.0
@@ -1826,7 +1852,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-23:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-24:
     container_name: validator-24
     image: hyperledger/sawtooth-validator:1.0
@@ -1841,7 +1868,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-24:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-25:
     container_name: validator-25
     image: hyperledger/sawtooth-validator:1.0
@@ -1856,7 +1884,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-25:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-26:
     container_name: validator-26
     image: hyperledger/sawtooth-validator:1.0
@@ -1871,7 +1900,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-26:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-27:
     container_name: validator-27
     image: hyperledger/sawtooth-validator:1.0
@@ -1886,7 +1916,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-27:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-28:
     container_name: validator-28
     image: hyperledger/sawtooth-validator:1.0
@@ -1901,7 +1932,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-28:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-29:
     container_name: validator-29
     image: hyperledger/sawtooth-validator:1.0
@@ -1916,7 +1948,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-29:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-30:
     container_name: validator-30
     image: hyperledger/sawtooth-validator:1.0
@@ -1931,7 +1964,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-30:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-31:
     container_name: validator-31
     image: hyperledger/sawtooth-validator:1.0
@@ -1946,7 +1980,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-31:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-32:
     container_name: validator-32
     image: hyperledger/sawtooth-validator:1.0
@@ -1961,7 +1996,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-32:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-33:
     container_name: validator-33
     image: hyperledger/sawtooth-validator:1.0
@@ -1976,7 +2012,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-33:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-34:
     container_name: validator-34
     image: hyperledger/sawtooth-validator:1.0
@@ -1991,7 +2028,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-34:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-35:
     container_name: validator-35
     image: hyperledger/sawtooth-validator:1.0
@@ -2006,7 +2044,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-35:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-36:
     container_name: validator-36
     image: hyperledger/sawtooth-validator:1.0
@@ -2021,7 +2060,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-36:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-37:
     container_name: validator-37
     image: hyperledger/sawtooth-validator:1.0
@@ -2036,7 +2076,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-37:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-38:
     container_name: validator-38
     image: hyperledger/sawtooth-validator:1.0
@@ -2051,7 +2092,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-38:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-39:
     container_name: validator-39
     image: hyperledger/sawtooth-validator:1.0
@@ -2066,7 +2108,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-39:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-40:
     container_name: validator-40
     image: hyperledger/sawtooth-validator:1.0
@@ -2081,7 +2124,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-40:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-41:
     container_name: validator-41
     image: hyperledger/sawtooth-validator:1.0
@@ -2096,7 +2140,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-41:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-42:
     container_name: validator-42
     image: hyperledger/sawtooth-validator:1.0
@@ -2111,7 +2156,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-42:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-43:
     container_name: validator-43
     image: hyperledger/sawtooth-validator:1.0
@@ -2126,7 +2172,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-43:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-44:
     container_name: validator-44
     image: hyperledger/sawtooth-validator:1.0
@@ -2141,7 +2188,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-44:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-45:
     container_name: validator-45
     image: hyperledger/sawtooth-validator:1.0
@@ -2156,7 +2204,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-45:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-46:
     container_name: validator-46
     image: hyperledger/sawtooth-validator:1.0
@@ -2171,7 +2220,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-46:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-47:
     container_name: validator-47
     image: hyperledger/sawtooth-validator:1.0
@@ -2186,7 +2236,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-47:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-48:
     container_name: validator-48
     image: hyperledger/sawtooth-validator:1.0
@@ -2201,7 +2252,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-48:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
   validator-49:
     container_name: validator-49
     image: hyperledger/sawtooth-validator:1.0
@@ -2216,7 +2268,8 @@ services:
         fi;
         sawtooth-validator -v --endpoint tcp://validator-49:8800 --bind component:tcp://eth0:4004 --bind network:tcp://eth0:8800 --peering dynamic --seeds tcp://validator-0:8800
       "
-
+    depends_on:
+      - validator-0
 
 
 
