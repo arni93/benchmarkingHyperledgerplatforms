@@ -136,7 +136,7 @@ if [[ "$HOST" == "" || "$PORT" == "" ]]; then
     usage
 fi
 
-TIMEOUT=${TIMEOUT:-60}
+TIMEOUT=${TIMEOUT:-180}
 STRICT=${STRICT:-0}
 CHILD=${CHILD:-0}
 QUIET=${QUIET:-0}
