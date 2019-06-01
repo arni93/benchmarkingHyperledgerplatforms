@@ -948,7 +948,7 @@ services:
             -o config-settings.batch \
             sawtooth.poet.initial_wait_time=15 \
             sawtooth.poet.target_wait_time=10 \
-            sawtooth.validator.max_transactions_per_block=10 && \
+            sawtooth.validator.max_transactions_per_block=50 && \
         sawadm genesis config-genesis.batch config.batch config-settings.batch poet.batch && \
         sawtooth-validator -v \
             --endpoint tcp://validator-0:8800 \
