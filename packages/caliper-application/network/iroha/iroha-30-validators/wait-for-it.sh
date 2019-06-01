@@ -66,7 +66,6 @@ wait_for_wrapper()
     fi
     return $RESULT
 }
-
 # process arguments
 while [[ $# -gt 0 ]]
 do
@@ -136,7 +135,7 @@ if [[ "$HOST" == "" || "$PORT" == "" ]]; then
     usage
 fi
 
-TIMEOUT=${TIMEOUT:-120}
+TIMEOUT=${TIMEOUT:300}
 STRICT=${STRICT:-0}
 CHILD=${CHILD:-0}
 QUIET=${QUIET:-0}
@@ -152,6 +151,8 @@ else
         BUSYTIMEFLAG=""
 fi
 
+sleep 30s
+
 if [[ $CHILD -gt 0 ]]; then
     wait_for
     RESULT=$?
@@ -165,6 +166,7 @@ else
         RESULT=$?
     fi
 fi
+
 
 if [[ $CLI != "" ]]; then
     if [[ $RESULT -ne 0 && $STRICT -eq 1 ]]; then

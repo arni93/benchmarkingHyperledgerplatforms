@@ -136,7 +136,7 @@ if [[ "$HOST" == "" || "$PORT" == "" ]]; then
     usage
 fi
 
-TIMEOUT=${TIMEOUT:-120}
+TIMEOUT=${TIMEOUT:300}
 STRICT=${STRICT:-0}
 CHILD=${CHILD:-0}
 QUIET=${QUIET:-0}
@@ -151,6 +151,8 @@ else
         ISBUSY=0
         BUSYTIMEFLAG=""
 fi
+
+sleep 30s
 
 if [[ $CHILD -gt 0 ]]; then
     wait_for

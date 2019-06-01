@@ -2,8 +2,8 @@
   "caliper": {  
     "blockchain": "iroha",
     "command" : {
-      "start": "echo must start manually",
-      "end" : "docker-compose -f network/iroha/iroha-60-validators/docker-compose.yml down; docker rm -f $(docker ps -aq)"
+      "start": "echo you must run it manually",
+      "end" : "echo you must clean it manually"
     }
   },
   "iroha": {

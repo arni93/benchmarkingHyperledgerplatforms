@@ -75,7 +75,7 @@ services:
       - iroha_pg2
       - iroha-node0
     entrypoint: ["./wait-for-it.sh", 
-      "iroha_pg2:5432", 
+      "iroha_pg2:5432",
       "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", 
       "--config", "/opt/iroha/nodes/node2/config.sample", 
       "--keypair_name", "node2", "--overwrite-ledger"]
