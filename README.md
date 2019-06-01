@@ -39,6 +39,8 @@ How to install required software:
     3) docker
         https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
+        sudo usermod -aG docker your-user //it will add user to docker group so cmds can be used without sudo, log out and log in after
+
     
     4) docker-compose
         sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -49,3 +51,6 @@ How to install required software:
     5) visual studio code
         sudo apt update
         sudo apt install code
+
+    6) clone repo
+        git clone https://github.com/arni93/benchmarkingHyperledgerplatforms.git

@@ -1777,28 +1777,28 @@ services:
       - POSTGRES_USER=iroha
       - POSTGRES_PASSWORD=helloworld
 
-iroha_pg46:
+  iroha_pg46:
     image: postgres:9.5
     container_name: iroha_pg46
     environment:
       - POSTGRES_USER=iroha
       - POSTGRES_PASSWORD=helloworld
 
-iroha_pg47:
+  iroha_pg47:
     image: postgres:9.5
     container_name: iroha_pg47
     environment:
       - POSTGRES_USER=iroha
       - POSTGRES_PASSWORD=helloworld
 
-iroha_pg48:
+  iroha_pg48:
     image: postgres:9.5
     container_name: iroha_pg48
     environment:
       - POSTGRES_USER=iroha
       - POSTGRES_PASSWORD=helloworld
 
-iroha_pg49:
+  iroha_pg49:
     image: postgres:9.5
     container_name: iroha_pg49
     environment:
