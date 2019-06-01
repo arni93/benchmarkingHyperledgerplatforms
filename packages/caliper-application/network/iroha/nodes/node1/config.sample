@@ -3,7 +3,7 @@
   "torii_port" : 50051,
   "internal_port" : 10001,
   "pg_opt" : "host=iroha_pg1 port=5432 user=iroha password=helloworld",
-  "max_proposal_size" : 10,
+  "max_proposal_size" : 50,
   "mst_expiration_time": 1440,
   "proposal_delay" : 5000,
   "vote_delay" : 5000,
