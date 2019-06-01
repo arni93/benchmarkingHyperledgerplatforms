@@ -9,23 +9,19 @@ test:
   - label: open
     txNumber:
     - 50
-    - 60
-    - 60
-    - 80
     - 100
-    - 120
-    - 140
-    - 160
-    - 180
+    - 150
     - 200
+    - 250
     - 300
+    - 350
     - 400
+    - 450
     - 500
-    - 600
-    - 700
-    - 800
-    - 900
     - 1000
+    - 1500
+    - 2000
+    - 2500
     rateControl:
     - type: fixed-rate
       opts:
@@ -59,25 +55,13 @@ test:
         tps: 100
     - type: fixed-rate
       opts:
-        tps: 150
-    - type: fixed-rate
-      opts:
         tps: 200
-    - type: fixed-rate
-      opts:
-        tps: 250
     - type: fixed-rate
       opts:
         tps: 300
     - type: fixed-rate
       opts:
-        tps: 350
-    - type: fixed-rate
-      opts:
         tps: 400
-    - type: fixed-rate
-      opts:
-        tps: 450
     - type: fixed-rate
       opts:
         tps: 500    
