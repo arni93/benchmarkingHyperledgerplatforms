@@ -19,7 +19,6 @@ test:
     - 450
     - 500
     - 750
-    - 1000
     rateControl:
     - type: fixed-rate
       opts:
@@ -54,13 +53,10 @@ test:
     - type: fixed-rate
       opts:
         tps: 150
-    - type: fixed-rate
-      opts:
-        tps: 200
 
     arguments:
       money: 10000
-      txnPerBatch: 10
+      txnPerBatch: 1
     callback: benchmark/simple/open.js
   - label: query
     txNumber:
