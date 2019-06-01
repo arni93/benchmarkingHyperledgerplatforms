@@ -37,9 +37,8 @@ How to install required software:
         sudo npm install -g node-gyp
 
     3) docker
-        sudo apt-get update
-        sudo apt-get install docker-ce docker-ce-cli containerd.io
-        sudo docker run hello-world
+        https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
     
     4) docker-compose
         sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
