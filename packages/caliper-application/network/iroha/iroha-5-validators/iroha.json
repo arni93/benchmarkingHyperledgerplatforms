@@ -16,18 +16,6 @@
     "network": {
       "node0": {
         "torii": "localhost:50000"
-      },
-      "node1": {
-        "torii": "localhost:50001"
-      },
-      "node2": {
-        "torii": "localhost:50002"
-      },
-      "node3": {
-        "torii": "localhost:50003"
-      },
-      "node4": {
-        "torii": "localhost:50004"
       }
     },
     "fakecontract": [

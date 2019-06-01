@@ -16,34 +16,7 @@
     "network": {
       "node0": {
         "torii": "localhost:50000"
-      },
-      "node1": {
-        "torii": "localhost:50001"
-      },
-      "node2": {
-        "torii": "localhost:50002"
-      },
-      "node3": {
-        "torii": "localhost:50003"
-      },
-      "node4": {
-        "torii": "localhost:50004"
-      },
-      "node5": {
-        "torii": "localhost:50005"
-      },
-      "node6": {
-        "torii": "localhost:50006"
-      },
-      "node7": {
-        "torii": "localhost:50007"
-      },
-      "node8": {
-        "torii": "localhost:50008"
-      },
-      "node9": {
-        "torii": "localhost:50009"
-      }                          
+      }                         
     },
     "fakecontract": [
       {"factory": "src/contract/iroha/simple/factory.js", "id":["simple"]}
